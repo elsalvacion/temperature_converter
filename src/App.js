@@ -15,7 +15,7 @@ function App() {
     <TempState>
       <Fragment>
         <Navbar />
-        <div className="container">
+        <div className="container temp-card-container">
           <TempCard />
         </div>
       </Fragment>
