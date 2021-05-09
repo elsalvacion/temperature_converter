@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
+import TempContext from "../../context/tempContext";
+import TempInput from "./TempInput";
 const TempCard = (props) => {
-  const [celsius, setCelsius] = useState(0);
-  const [fahrenheit, setFahrenheit] = useState(32);
+  const tempContext = useContext(TempContext);
 
-  const convertToCelsius = (far) => {
-    const cel = (parseFloat(far) - 32) * (5 / 9);
-    setCelsius(parseFloat(cel));
-  };
+  const {
+    celsius,
+    fahrenheit,
+    setCelsius,
+    setFahrenheit,
+    convertToCelsius,
+    convertToFarenheit,
+  } = tempContext;
 
-  const convertToFarenheit = (cel) => {
-    const far = (parseFloat(cel) * 9) / 5 + 32;
-    setFahrenheit(far.toString());
-  };
   const handleCelsius = (e) => {
     if (isNaN(parseFloat(e.target.value))) {
       setCelsius("");
@@ -39,31 +39,21 @@ const TempCard = (props) => {
         <h3 className="card-title center-align">Temperature Conversion App</h3>
         <div className="row">
           <div className="col m5 s6">
-            <div className="input-field">
-              <input
-                type="text"
-                id="celsius"
-                value={celsius}
-                onChange={handleCelsius}
-                placeholder="Celsius"
-              />
-              <label htmlFor="celsius">Celsius</label>
-            </div>
+            <TempInput
+              name="Celsius"
+              value={celsius}
+              handleChange={handleCelsius}
+            />
           </div>
           <div className="col m2 vertical-wrapper center hide-on-small-only">
             <i className="material-icons">drag_handle</i>
           </div>
           <div className="col m5 s6">
-            <div className="input-field">
-              <input
-                type="text"
-                id="fahrenheit"
-                value={fahrenheit}
-                onChange={handleFahrenheit}
-                placeholder="Fahrenheit"
-              />
-              <label htmlFor="fahrenheit">Fahrenheit</label>
-            </div>
+            <TempInput
+              name="Fahrenheit"
+              value={fahrenheit}
+              handleChange={handleFahrenheit}
+            />
           </div>
         </div>
       </div>

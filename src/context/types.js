@@ -1,0 +1,3 @@
+export const SET_CELSIUS = "SET_CELSIUS";
+
+export const SET_FAHRENHEIT = "SET_FAHRENHEIT";
