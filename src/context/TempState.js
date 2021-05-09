@@ -23,13 +23,13 @@ const TempState = (props) => {
     });
   };
   const convertToCelsius = (fah) => {
-    const cel = (parseFloat(fah) - 32) * (5 / 9);
-    setCelsius(parseFloat(cel));
+    const cel = (fah - 32) * (5 / 9);
+    setCelsius(cel);
   };
 
   const convertToFarenheit = (cel) => {
-    const fah = (parseFloat(cel) * 9) / 5 + 32;
-    setFahrenheit(parseFloat(fah));
+    const fah = (cel * 9) / 5 + 32;
+    setFahrenheit(fah);
   };
   return (
     <TempContext.Provider

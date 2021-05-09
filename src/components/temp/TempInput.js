@@ -4,11 +4,11 @@ const CelsiusInput = (props) => {
   return (
     <div className="input-field">
       <input
-        type="text"
+        type="number"
         id={props.name}
         value={props.value}
         onChange={props.handleChange}
-        placeholder="Fahrenheit"
+        placeholder={props.name}
       />
       <label htmlFor={props.name}>{props.name}</label>
     </div>
